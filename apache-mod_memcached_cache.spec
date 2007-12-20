@@ -26,6 +26,7 @@ Requires:	apache-mod_cache >= %{apache_version}
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	apr_memcache-devel
 BuildRequires:	apache-source
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 This module allows your Apache 2.2.x installation to serve cached data quickly
