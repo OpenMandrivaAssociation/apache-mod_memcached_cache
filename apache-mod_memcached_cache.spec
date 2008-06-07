@@ -7,14 +7,14 @@
 Summary:	A mod_cache provider module for memcached storage
 Name:		apache-%{mod_name}
 Version:	0.1.0
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Servers
 License:	Apache License
 URL:		http://code.google.com/p/modmemcachecache/
 Source0:	http://modmemcachecache.googlecode.com/files/%{mod_name}-%{version}.tar.bz2
 Source1:	%{mod_conf}
 Patch0:		mod_memcached_cache-apr_memcache_linkage_fix.diff
-Patch1:		mod_memcached_cache-no_rpath.diff
+Patch1:		mod_memcached_cache-apu13.diff
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
 Requires(pre):	apache-conf >= %{apache_version}
@@ -24,8 +24,9 @@ Requires:	apache-conf >= %{apache_version}
 Requires:	apache >= %{apache_version}
 Requires:	apache-mod_cache >= %{apache_version}
 BuildRequires:	apache-devel >= %{apache_version}
-BuildRequires:	apr_memcache-devel
+BuildRequires:	apr-util-devel >= 1.3.0
 BuildRequires:	apache-source
+BuildRequires:	libtool
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -50,6 +51,7 @@ cp /usr/src/apache-*/modules/cache/mod_cache.h src/
 # lib64 fixes
 perl -pi -e "s|/lib\ |/%{_lib}\ |g" m4/apr_memcache.m4
 perl -pi -e "s|/lib/|/%{_lib}/|g" m4/apr_memcache.m4
+perl -pi -e "s|/lib\b|/%{_lib}|g" m4/apr_memcache.m4
 
 %build
 rm -f configure
