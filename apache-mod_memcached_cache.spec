@@ -7,7 +7,7 @@
 Summary:	A mod_cache provider module for memcached storage
 Name:		apache-%{mod_name}
 Version:	0.1.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		System/Servers
 License:	Apache License
 URL:		http://code.google.com/p/modmemcachecache/
