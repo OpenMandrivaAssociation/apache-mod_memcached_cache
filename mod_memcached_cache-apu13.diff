@@ -1,0 +1,25 @@
+--- m4/apr_memcache.m4	2007-07-02 06:03:00.000000000 +0200
++++ m4/apr_memcache.m4.oden	2008-06-07 21:05:03.000000000 +0200
+@@ -21,7 +21,7 @@
+ 
+ APR_MEMCACHE_URL="http://www.outoforder.cc/projects/libs/apr_memcache/"
+ AC_ARG_WITH(
+-    apr_memcache,
++    aprutil-1,
+     [AC_HELP_STRING([--with-apr-memcache=PATH],[Path to apr_memcache library])],
+     mc_path="$withval",
+     :)
+@@ -34,10 +34,10 @@
+ 
+ for x in $test_paths ; do
+     AC_MSG_CHECKING([for apr_memcache library in ${x}])
+-    if test -f ${x}/include/apr_memcache-0/apr_memcache.h; then
++    if test -f ${x}/include/apr-1/apr_memcache.h; then
+         AC_MSG_RESULT([yes])
+-        APR_MEMCACHE_LIBS="-R${x}/lib -L${x}/lib -lapr_memcache"
+-        APR_MEMCACHE_CFLAGS="-I${x}/include/apr_memcache-0"
++        APR_MEMCACHE_LIBS="`apu-1-config --link-ld`"
++        APR_MEMCACHE_CFLAGS="`apu-1-config --includes`"
+         break
+     else
+         AC_MSG_RESULT([no])

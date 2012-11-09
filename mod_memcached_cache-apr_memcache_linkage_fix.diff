@@ -1,0 +1,15 @@
+--- configure.ac	2007-08-29 18:44:52.000000000 +0200
++++ configure.ac.oden	2007-10-01 13:28:36.000000000 +0200
+@@ -30,10 +30,10 @@
+ LIBTOOL="`${APR_CONFIG} --apr-libtool`"
+ AC_SUBST(LIBTOOL)
+ 
+-MODULE_CFLAGS="${APXS_CFLAGS} ${AP_INCLUDES} ${APR_INCLUDES} ${APU_INCLUDES}"
++MODULE_CFLAGS="${APXS_CFLAGS} ${AP_INCLUDES} ${APR_INCLUDES} ${APU_INCLUDES} ${APR_MEMCACHE_CFLAGS}"
+ AC_SUBST(MODULE_CFLAGS)
+ 
+-MODULE_LDFLAGS=" `${APR_CONFIG} --link-libtool` `${APU_CONFIG} --link-libtool`"
++MODULE_LDFLAGS=" `${APR_CONFIG} --link-libtool` `${APU_CONFIG} --link-libtool` ${APR_MEMCACHE_LIBS}"
+ AC_SUBST(MODULE_LDFLAGS)
+ 
+ BIN_LDFLAGS=" `${APR_CONFIG} --link-libtool` `${APU_CONFIG} --link-libtool` `${APU_CONFIG} --ldflags --libs` `${APR_CONFIG} --ldflags --libs`" 
