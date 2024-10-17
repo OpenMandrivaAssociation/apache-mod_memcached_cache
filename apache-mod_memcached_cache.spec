@@ -10,7 +10,7 @@ Version:	0.1.0
 Release:	%mkrel 12
 Group:		System/Servers
 License:	Apache License
-URL:		http://code.google.com/p/modmemcachecache/
+URL:		https://code.google.com/p/modmemcachecache/
 Source0:	http://modmemcachecache.googlecode.com/files/%{mod_name}-%{version}.tar.bz2
 Source1:	%{mod_conf}
 Patch0:		mod_memcached_cache-apr_memcache_linkage_fix.diff
